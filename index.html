@@ -18,10 +18,10 @@
 <button id="saveBtn" type="button">Salvează setările</button>
 </div></div></div>
 <script>
-var API_URL='https://script.google.com/macros/s/AKfycbwHJXTSJqcpzlNFOFqEjwVVfPWM0CnIJikzZdJj3_VdR8axo3Pts9sy7tDqXpVhd52u/exec';
+var API_URL='https://script.google.com/macros/s/AKfycbz45B98QSMaxKRYSaGaX-fgB1CRAuiyNAFnQ-3TZqYU8fbBn9f9JIdfxAHZax2hP2Xr/exec';
 var ids=['morningOpen','morningClose','breakStart','breakEnd','eveningOpen','eveningClose'];
 function $(id){return document.getElementById(id)}
-function parseTime(v){if(!v)return '12:00';v=String(v);var iso=v.match(/T(\d{2}):(\d{2})/);if(iso)return iso[1]+':'+iso[2];var normal=v.match(/^(\d{1,2}):(\d{2})/);if(normal)return String(normal[1]).padStart(2,'0')+':'+normal[2];var dateText=v.match(/\b(\d{2}):(\d{2}):(\d{2})\b/);if(dateText)return dateText[1]+':'+dateText[2];return '12:00'}
+function parseTime(v){if(!v)return '12:00';v=String(v);var iso=v.match(/T(\d{2}):(\d{2})/);if(iso)return iso[1]+':'+iso[2];var gmt=v.match(/\b(\d{2}):(\d{2}):(\d{2})\s*GMT/);if(gmt)return gmt[1]+':'+gmt[2];var normal=v.match(/^(\d{1,2}):(\d{2})/);if(normal)return String(normal[1]).padStart(2,'0')+':'+normal[2];return '12:00'}
 function timeOptions(sel,val){sel.innerHTML='';for(var h=0;h<24;h++){for(var m=0;m<60;m+=15){var v=String(h).padStart(2,'0')+':'+String(m).padStart(2,'0');var lab=v;var o=document.createElement('option');o.value=v;o.textContent=lab;if(v===val)o.selected=true;sel.appendChild(o)}}}
 function msg(txt,type){var el=$('msg');el.className='msg show '+(type||'load');el.innerHTML=txt}
 function setBreakVisible(){ $('breakWrap').style.display=$('hasBreak').checked?'grid':'none'}
