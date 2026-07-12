@@ -18,7 +18,7 @@
 <button id="saveBtn" type="button">Salvează setările</button>
 </div></div></div>
 <script>
-var API_URL='https://script.google.com/macros/s/AKfycbz45B98QSMaxKRYSaGaX-fgB1CRAuiyNAFnQ-3TZqYU8fbBn9f9JIdfxAHZax2hP2Xr/exec';
+var API_URL='https://script.google.com/macros/s/AKfycbwf7m-eRCaotvroXV7T0U81fHu5x7KQaSOrSdUMaZmVqUd4Aj9-wvYzkhVmjmBa7LY/exec';
 var ids=['morningOpen','morningClose','breakStart','breakEnd','eveningOpen','eveningClose'];
 function $(id){return document.getElementById(id)}
 function parseTime(v){if(!v)return '12:00';v=String(v);var iso=v.match(/T(\d{2}):(\d{2})/);if(iso)return iso[1]+':'+iso[2];var gmt=v.match(/\b(\d{2}):(\d{2}):(\d{2})\s*GMT/);if(gmt)return gmt[1]+':'+gmt[2];var normal=v.match(/^(\d{1,2}):(\d{2})/);if(normal)return String(normal[1]).padStart(2,'0')+':'+normal[2];return '12:00'}
